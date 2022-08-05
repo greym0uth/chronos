@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Box.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bars.gd" type="Script" id=2]
+[ext_resource path="res://Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://obstacles/Axe.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ObstacleManager.gd" type="Script" id=5]
+
+[node name="Level" type="Node2D"]
+
+[node name="Box" parent="." instance=ExtResource( 1 )]
+position = Vector2( 37, -105 )
+speed_modifier = 0.0
+
+[node name="Bars" type="Node2D" parent="."]
+script = ExtResource( 2 )
+base_bar = ExtResource( 3 )
+
+[node name="Bar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 526, -120 )
+scale = Vector2( 0.440002, 1 )
+
+[node name="Bar2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 898, -217 )
+scale = Vector2( 0.440002, 1 )
+
+[node name="Bar3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1344, -308 )
+scale = Vector2( 0.440002, 1 )
+
+[node name="Bar4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1767, -397 )
+scale = Vector2( 0.440002, 1 )
+
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Axe" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 336, -114 )
+
+[connection signal="end_dialation" from="Box" to="Obstacles" method="_on_Box_end_dialation"]
+[connection signal="start_dialation" from="Box" to="Obstacles" method="_on_Box_start_dialation"]
