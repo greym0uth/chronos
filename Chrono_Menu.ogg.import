@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Chrono_Menu.ogg-25ea8dc626412d8349edf86b32d71426.oggstr"
+
+[deps]
+
+source_file="res://Chrono_Menu.ogg"
+dest_files=[ "res://.import/Chrono_Menu.ogg-25ea8dc626412d8349edf86b32d71426.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

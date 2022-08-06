@@ -1,6 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Box.gd" type="Script" id=1]
+
+[sub_resource type="VisualShaderNodeColorConstant" id=4]
+constant = Color( 0.0742188, 0.0649414, 0.0649414, 1 )
+
+[sub_resource type="VisualShader" id=5]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.074219, 0.064941, 0.064941);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -327, 77 )
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/position = Vector2( 200, 180 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 20, 20 )
@@ -23,9 +61,14 @@ tracks/0/keys = {
 }
 
 [node name="Box" type="KinematicBody2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource( 1 )
 
 [node name="Mesh" type="MeshInstance2D" parent="."]
+material = SubResource( 6 )
+z_index = 10
+z_as_relative = false
 mesh = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

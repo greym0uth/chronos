@@ -1,0 +1,155 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SongManager.gd" type="Script" id=1]
+[ext_resource path="res://150tempo-track.ogg" type="AudioStream" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "dialate"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("SongManager/BaseSongPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 14.42, 14.42 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SongManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_dialation_track"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SongManager/SlowSongPlayer:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1.6245, 2.46228 ),
+"update": 0,
+"values": [ 1.0, 0.25 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SongManager/SlowSongPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 10.9283, 10.9283 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("SongManager/SlowSongPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "dialate (copy)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("SongManager/BaseSongPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SongManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_dialation_track"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SongManager/SlowSongPlayer:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1.6245, 1.6245 ),
+"update": 0,
+"values": [ 0.25, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SongManager/SlowSongPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("SongManager/SlowSongPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[node name="SongManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/dialate = SubResource( 3 )
+anims/undialate = SubResource( 4 )
+
+[node name="SlowSongPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="BaseSongPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Song"
