@@ -64,7 +64,7 @@ z_index = 3
 texture = ExtResource( 8 )
 
 [node name="Box" parent="." instance=ExtResource( 1 )]
-position = Vector2( 37394, -31 )
+position = Vector2( -717, -24 )
 z_index = -1
 
 [node name="Leading" parent="." instance=ExtResource( 3 )]
