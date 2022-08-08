@@ -28,7 +28,7 @@ func _physics_process(delta):
 
   velocity = move_and_slide(velocity, Vector2.UP)
   
-  if velocity.x < speed / 2:
+  if velocity.x < speed / 2 || position.y > 50:
     emit_signal("game_over")
 
 func _process(_delta):

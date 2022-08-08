@@ -33,7 +33,7 @@ playback_process_mode = 0
 anims/obstacle_animate = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-rotation = 0.879646
+rotation = 1.0472
 scale = Vector2( 1, 2 )
 collision_layer = 2
 collision_mask = 2

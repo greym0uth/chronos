@@ -20,7 +20,6 @@ func reset():
   .reset()
   $Tween.playback_speed = 1.0
 
-
 func _draw():
   if Engine.editor_hint:
     var end_position = $Cannonball.position + Vector2(-distance, 0)
