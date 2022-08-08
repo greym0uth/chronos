@@ -5,6 +5,8 @@ onready var SettingsMenu = get_node("CanvasLayer/Control/Settings")
 onready var GameOverMenu = get_node("CanvasLayer/Control/GameOver")
 onready var WinnerMenu = get_node("CanvasLayer/Control/Winner")
 
+onready var DialationMeter: ProgressBar = get_node("CanvasLayer/Control/MarginContainer/HBoxContainer/DialationMeter")
+
 func _ready():
   get_tree().paused = false
 
@@ -38,3 +40,6 @@ func _on_game_over():
 func _on_finish(_body):
   get_tree().paused = true
   WinnerMenu.show()
+
+func _on_dialation_meter_changed(value: float):
+  DialationMeter.value = value

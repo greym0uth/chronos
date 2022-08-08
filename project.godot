@@ -33,6 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="chronos"
+run/main_scene="res://scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [gdnative]

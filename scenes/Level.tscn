@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bars/Bars.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://obstacles/Axe.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ObstacleManager.gd" type="Script" id=5]
 [ext_resource path="res://SongManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Chrono_Level.ogg" type="AudioStream" id=7]
 [ext_resource path="res://backgrounds/Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Level.gd" type="Script" id=9]
 [ext_resource path="res://scenes/menus/Settings.tscn" type="PackedScene" id=10]
@@ -300,7 +299,6 @@ position = Vector2( 75.5, -136.5 )
 shape = SubResource( 2 )
 
 [node name="SongManager" parent="." instance=ExtResource( 6 )]
-song = ExtResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -525,6 +523,32 @@ text = "Quit"
 [node name="Settings" parent="CanvasLayer/Control" instance=ExtResource( 10 )]
 visible = false
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+margin_right = 600.0
+margin_bottom = 40.0
+custom_constants/margin_top = 24
+custom_constants/margin_left = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 600.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 84.0
+margin_bottom = 15.0
+text = "Chronometer"
+
+[node name="DialationMeter" type="ProgressBar" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 388.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 300, 0 )
+value = 100.0
+
+[connection signal="dialation_meter_changed" from="Box" to="." method="_on_dialation_meter_changed"]
 [connection signal="end_dialation" from="Box" to="Obstacles" method="_on_Box_end_dialation"]
 [connection signal="end_dialation" from="Box" to="SongManager" method="_on_end_dialation"]
 [connection signal="game_over" from="Box" to="." method="_on_game_over"]

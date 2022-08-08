@@ -2,5 +2,6 @@
 *.translation
 export_preset.cfg
 .mono/
+builds/
 
 .DS_Store

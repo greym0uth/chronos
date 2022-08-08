@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SongManager.gd" type="Script" id=1]
-[ext_resource path="res://150tempo-track.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Chrono_Level.ogg" type="AudioStream" id=2]
 
 [sub_resource type="Animation" id=3]
 resource_name = "dialate"
@@ -141,6 +141,7 @@ tracks/4/keys = {
 
 [node name="SongManager" type="Node2D"]
 script = ExtResource( 1 )
+song = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -148,8 +149,6 @@ anims/dialate = SubResource( 3 )
 anims/undialate = SubResource( 4 )
 
 [node name="SlowSongPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
 
 [node name="BaseSongPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
 bus = "Song"
