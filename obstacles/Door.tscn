@@ -19,7 +19,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Swing"
-length = 4.0
+length = 2.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("StaticBody2D:position")

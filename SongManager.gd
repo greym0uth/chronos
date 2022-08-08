@@ -5,6 +5,7 @@ export(AudioStream) var song
 func _ready():
   $BaseSongPlayer.stream = song
   $SlowSongPlayer.stream = song
+  AudioServer.set_bus_bypass_effects(1, true)
 
 func _on_song_started(_body):
   $BaseSongPlayer.play()
